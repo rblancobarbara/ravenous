@@ -21,6 +21,10 @@ const businesses = [
 ];
 
 class App extends Component {
+  searchYelp() {
+    console.log(`Searching Yelp with Pizza, Brooklyn, best_Match`);
+  }
+
   render() {
     return (
       <div className="App">
