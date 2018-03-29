@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BusinessList from './components/BusinessList/BusinessList';
+import Yelp from './util/Yelps';
 import SearchBar from './components/SearchBar/SearchBar';
 
+/*
 const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
   name: 'MarginOtto Pizzeria',
@@ -19,10 +21,19 @@ const business = {
 const businesses = [
   business, business, business, business, business, business,
 ];
+*/
 
 class App extends Component {
-  searchYelp() {
-    console.log(`Searching Yelp with Pizza, Brooklyn, best_Match`);
+  constructor(props) {
+    super(props);
+    this.state = {businesses: []};
+    this.searchYelp.bind(this);
+  }
+  searchYelp(Pizza, Brooklyn, best_Match) {
+    //console.log(`Searching Yelp with Pizza, Brooklyn, best_Match`);
+    Yelp.search().then(businesses => {
+      this.setState = this.setState({businesses: businesses});
+    });
   }
 
   render() {
